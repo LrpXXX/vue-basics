@@ -1,0 +1,140 @@
+﻿body{min-width: 1280px;overflow-x: auto;overflow-y: hidden;margin:0;padding:0}
+fbody,h1,h2,h3,h4,h5,h6,
+hr,p,blockquote,dl,dt,dd,ul,ol,li,
+pre,form,fieldset,legend,button,input,
+textarea,th,td {    margin: 0;  padding: 0;}
+body,button,input,select,textarea {
+  font-family:  "PingFang SC", "Lantinghei SC", "Microsoft Yahei", "Arial", "黑体", "宋体", SimSun;   
+}
+
+h1,h2,h3,h4,h5,h6 {    font-size: 100%;}
+
+address,cite,dfn,em,var {    font-style: normal;}
+code,kbd,pre,samp { font-family: couriernew, courier, monospace;}
+small {font-size: 12px;}
+ul,ol { list-style: none;}
+a {text-decoration: none;color: #039fee;}
+a:hover {text-decoration: none;cursor: pointer;}
+sup {vertical-align: text-top;}
+sub {vertical-align: text-bottom;}
+legend {color: #000;}
+fieldset,img {border: 0;}
+table {  border-collapse: collapse;    border-spacing: 0;    font-size: 14px;}
+div,table,section,header {    box-sizing: border-box;    -moz-box-sizing: border-box;    -webkit-box-sizing: border-box;}
+
+.table-overflow {width: 100%; table-layout: fixed;}
+.table-overflow tr td{	width:100%;		padding:10px;	overflow:hidden;	text-overflow:ellipsis;	white-space:nowrap; }
+.text-overflow{	width:100%;		padding: 0 5px;	overflow:hidden;	text-overflow:ellipsis;	white-space:nowrap; }
+.dis_in{display: inline-block;vertical-align: top;}
+.clear{clear: both;}
+/** 滚动条样式  chrome 49 **/
+::-webkit-scrollbar  {  width: 8px; height: 10px;background-color: none; border-radius: 10px;   }
+::-webkit-scrollbar-track  {border-radius: 5px;background-color: none;  }
+::-webkit-scrollbar-thumb  { border-radius: 10px; background-color: rgba(0,0,0,0.1); -webkit-border-radius: 10px; -moz-border-radius: 10px; -ms-border-radius: 10px; -o-border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover{background: rgba(0,0,0,0.3);}
+/*IE9+ 火狐45+ 无法调整宽度等属性*/
+html {
+    -ms-overflow-style:scrollbar;
+}
+
+
+.scoll-main {height: calc(100vh - 38px );  overflow-x: hidden;}
+.el-main {background-color: #f8f8fb;  //margin: 15px 5px 15px 15px;
+   padding: 0px;
+   min-height: calc(100vh - 85px);
+}
+@media screen and (max-width: 1440px) {
+  .el-main {
+    // padding: 10px !important;
+  }
+}
+$box-padding:15px;//盒子内间距
+$box-bg:#fff;//盒子颜色
+.box-title {font-size:22px;text-align: left;height:40px;}/*内容页标题*/
+.box-main{padding:$box-padding;background:$box-bg;min-height:calc(100vh - 60px - 70px)}
+.box-normal{background:$box-bg;padding:$box-padding;display:inline-block;vertical-align: top;}
+.box-h{min-height:calc(100vh - 60px - 40px - 40px)}
+
+
+
+
+/*顶部页面加载进度条颜色*/
+#nprogress .bar {
+  background: #409EFF; 
+}
+/*系统警告页模块*/
+.warning-pic {background-image: url("../images/system/p-error.png"); display: block;margin-right: 80px;}.P500 {background-position: -13px -375px; width:422px; height:193px; }
+.P403 {background-position: -0px -0px; width:226px; height:268px; }
+.P404 {background-position: -250px -4px; width:423px; height:341px; }
+
+.warning-page{
+  text-align:center;width:100%;
+  .grid-content{padding-top: 100px;display: inline-block;vertical-align:middle;}
+  .grid-content img{max-width: 100%;margin-right:80px}
+  .grid-content h1{font-size: 80px;color:rgb(84, 85, 86);margin-top: 30px;line-height: 70px}
+  .grid-content p{ font-weight: 400;font-style: normal;font-size: 20px;color: rgba(0, 0, 0, 0.427450980392157);line-height:90px;}
+}
+/*系统警告页模块 end*/
+
+/*表格*/
+.el-table th{background:#fafafa !important;color:rgba(0,0,0,.85);font-weight: 500;font-size: 15px;height: 60px}
+/*表格 end*/
+
+/*状态圆圈*/
+.status-o{width:7px;height:7px;background:#52c41a;   display: inline-block;
+   border-radius:50% ; -webkit-border-radius:50% ; -moz-border-radius:50% ; -ms-border-radius:50% ; -o-border-radius:50% ;    
+  }
+ .s-success{background: #52c41a;}
+ .s-info{background: #bfbfbf;}
+ .s-warning{background: #ffc107;}
+ .s-danger{background: #f5222d;}
+.s-word{display: inline-block;margin-left: 7px;vertical-align: middle;}
+/*状态圆圈end*/
+
+/*router路由切换动效CSS*/
+/* fade */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.28s;
+}
+ 
+.fade-enter,
+.fade-leave-active {
+  opacity: 0;
+}
+ 
+/* fade-transform */
+.fade-transform-leave-active,
+.fade-transform-enter-active {
+  transition: all .5s;
+}
+ 
+.fade-transform-enter {
+  opacity: 0;
+  transform: translateX(-30px);
+}
+ 
+.fade-transform-leave-to {
+  opacity: 0;
+  transform: translateX(30px);
+}
+ 
+/* breadcrumb transition */
+.breadcrumb-enter-active,
+.breadcrumb-leave-active {
+  transition: all .5s;
+}
+ 
+.breadcrumb-enter,
+.breadcrumb-leave-active {
+  opacity: 0;
+  transform: translateX(20px);
+}
+ 
+.breadcrumb-move {
+  transition: all .5s;
+}
+ 
+.breadcrumb-leave-active {
+  position: absolute;
+}

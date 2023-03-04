@@ -1,0 +1,76 @@
+* {
+    padding: 0;
+    margin: 0;
+    outline: none;
+}
+
+
+/* flex布局 */
+
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.flex-center {
+    display: flex;
+    align-items: center;
+}
+
+.flex-center-j {
+    display: flex;
+    justify-content: center;
+}
+
+.flex-center-all {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* 鼠标形状 */
+
+.pointer {
+    cursor: pointer;
+}
+
+
+/* 超出省略 */
+
+.noh {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+/* 三行省略 */
+
+.noh3 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.p-b-50 {
+    padding-bottom: 50px;
+}
+
+.message_z_index{ 
+    z-index:3000 !important; 
+}
+
+/* 2022-6-1 */
+.layou-main-box {
+    margin: 20px;
+    padding:20px;
+    background: #fff;
+    height: calc(100vh - 175px);
+}
+
+.el-textarea__inner {
+    resize: none;
+}

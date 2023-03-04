@@ -1,0 +1,125 @@
+﻿
+@charset "utf-8";
+@mixin set-background {
+  [themecolor="#349DFB"] & {
+    background:#349DFB !important;
+  }   
+  [themecolor="#EF7527"] & {
+    background:#EF7527 !important;
+  }
+  [themecolor="#5A56DB"] & { 
+    background:#5A56DB !important;
+  }
+  [themecolor="#0EBFA3"] & {
+    background: #0EBFA3 !important;
+  } 
+  [themecolor="#00ced1"] & {
+    background:#00ced1 !important;
+  }
+}
+
+@mixin set-fontcolor{
+  [themecolor="#349DFB"] & {
+    color: #349DFB !important;
+  }   
+  [themecolor="#EF7527"] & {
+    color:  #EF7527 !important;
+  }
+  [themecolor="#5A56DB"] & { 
+    color: #5A56DB !important;
+  }
+  [themecolor="#0EBFA3"] & {
+    color: #0EBFA3 !important;
+  } 
+  [themecolor="#00ced1"] & {
+    color: #00ced1 !important;
+  }
+}
+
+@mixin set-bordercolor{
+  [themecolor="#349DFB"] & {
+    border-color: #349DFB !important;
+  }   
+  [themecolor="#EF7527"] & {
+    border-color:  #EF7527 !important;
+  }
+  [themecolor="#5A56DB"] & { 
+    border-color: #5A56DB !important;
+  }
+  [themecolor="#0EBFA3"] & {
+    border-color: #0EBFA3 !important;
+  } 
+  [themecolor="#00ced1"] & {
+    border-color: #00ced1 !important;
+  }
+}
+/*页面头*/
+.el-header,.logo-box{@include set-background;}
+
+
+/*弹框*/
+// 弹框动态背景色
+.el-dialog__header{
+  @include set-background;
+}
+// 底部横条
+.el-dialog__footer{
+  border-top: 3px solid;
+  @include set-bordercolor;
+
+}
+/*弹框*/
+
+//搜索页面竖条
+.leftborder{
+  border-left:5px solid ;
+  @include set-bordercolor;
+  line-height: 40px;
+  background: #eee;
+  padding-left: 15px;
+ }
+
+.btn-menushow{
+  @include set-background ;
+}
+
+.user-setting{ 
+  ul>li:hover{
+    @include set-fontcolor;
+    i{@include set-fontcolor;}
+  }
+}
+.icons{@include set-fontcolor;}
+.header-title{
+  @include set-fontcolor ;
+}
+.icons.font_family,.icon-unit-user-tree-color[data-v-92683f50]{
+  @include set-fontcolor;
+}
+//换页
+.el-pagination.is-background .el-pager li:not(.disabled).active{
+  @include set-background ;
+}
+//首页
+.home-bg{
+  .box-title{
+    @include set-fontcolor;
+    i{@include set-fontcolor;}
+  }
+  .point{@include set-background; }
+  .content-word-box:hover{@include set-fontcolor;}
+  .fast-box{
+    .img{
+      @include set-bordercolor;
+      i{@include  set-fontcolor;}
+    }
+    .img:hover{
+      @include set-background;
+      i{color:#fff !important;}
+    }
+  }
+}
+#menu-tabs>.el-tabs--border-card>.el-tabs__header .el-tabs__item.is-active{
+  @include set-fontcolor;
+}
+

@@ -1,0 +1,95 @@
+﻿@charset "utf-8";
+$default-color:#409EFF;
+.el-form-item{margin-bottom:15px;}/*表单间隔*/
+
+.el-menu-item.is-active {
+  background:#ecf5ff;
+//   border-right: 3px solid;
+}
+//弹窗
+.el-dialog{
+    border-radius: 9px !important;
+    -webkit-border-radius: 9px !important;
+    -moz-border-radius: 9px !important;
+    -ms-border-radius: 9px !important;
+    -o-border-radius: 9px !important;
+}
+.el-dialog__header {
+    background: $default-color;
+    padding-top: 10px !important;
+    border-radius: 7px 7px 0 0;    
+    -webkit-border-radius: 7px 7px 0 0;
+    -moz-border-radius: 7px 7px 0 0;
+    -ms-border-radius: 7px 7px 0 0;
+    -o-border-radius: 7px 7px 0 0;
+    i {color: #fff !important    }
+
+    .el-dialog__title {
+        color: #fff !important;
+    }
+    .el-dialog__headerbtn {
+        top: 15px !important;
+    }
+}
+.el-dialog__body{
+    padding:15px 20px 0 10px !important;
+}
+
+.el-dialog__footer {
+    border-top: 1px solid #f0f0f0 !important;
+    padding-bottom: 10px !important;
+}
+.el-row .el-select {
+    width: 100%
+}
+.el-form-item{margin-bottom:15px;}/*表单间隔*/
+
+
+
+.el-tabs--bottom .el-tabs__item.is-bottom:nth-child(2), .el-tabs--bottom .el-tabs__item.is-top:nth-child(2), .el-tabs--top .el-tabs__item.is-bottom:nth-child(2), .el-tabs--top .el-tabs__item.is-top:nth-child(2) {
+    padding-left: 10px !important;
+}
+
+.el-table .cell .el-button--text{
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+.el-table thead th{
+    line-height: normal;
+}
+
+.contentButAlign{
+    text-align: center;
+}
+.paginatAlign{
+    text-align: center;
+}
+
+.el-pagination {
+    text-align: center;
+}
+//换页样式
+.el-pagination{
+    margin-top:20px;text-align: right;font-weight: 500 !important;
+   
+}
+.el-pagination.is-background .btn-next, .el-pagination.is-background .btn-prev, .el-pagination.is-background .el-pager li{
+    background-color: #fff !important;
+    border:1px solid #e1e1e1;
+    border-radius:3px ;
+    -webkit-border-radius:3px ;
+    -moz-border-radius:3px ;
+    -ms-border-radius:3px ;
+    -o-border-radius:3px ;
+}
+.el-pagination.is-background .el-pager li:not(.disabled).active{
+    background-color: $default-color !important;
+    border:none;
+    border-radius:3px ;
+    -webkit-border-radius:3px ;
+    -moz-border-radius:3px ;
+    -ms-border-radius:3px ;
+    -o-border-radius:3px ;
+}
+.el-divider__text{color:#c3c3c3}
+.tree-span-font{font-size:14px}

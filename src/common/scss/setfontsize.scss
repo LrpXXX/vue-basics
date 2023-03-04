@@ -1,0 +1,273 @@
+﻿@charset "utf-8";
+@mixin add-size() {
+    [data-size="12"] & {
+        font-size: $font_size_12 !important;
+    }
+    [data-size="14"] & {
+        font-size: $font_size_14 !important;
+    }
+    [data-size="15"] & {
+        font-size: $font_size_14 !important;
+    }
+    [data-size="16"] & {
+        font-size: $font_size_16 !important;
+    }
+    [data-size="17"] & {
+        font-size: $font_size_17 !important;
+    }
+    [data-size="18"] & {
+        font-size: $font_size_18 !important;
+    }
+}
+
+//菜单等高级别层级标题单独处理 设置字号+1
+@mixin add-size1() {
+    [data-size="12"] & {
+        font-size: $font_size_14 !important;
+    }
+    [data-size="14"] & {
+        font-size: $font_size_15 !important;
+    }
+    [data-size="15"] & {
+        font-size: $font_size_16 !important;
+    }
+    [data-size="16"] & {
+        font-size: $font_size_17 !important;
+    }
+    [data-size="17"] & {
+        font-size: $font_size_18 !important;
+    }
+    [data-size="18"] & {
+        font-size: $font_size_19 !important;
+    }
+}
+
+//菜单等高级别层级标题单独处理 设置字号+2
+@mixin add-size2() {
+    [data-size="12"] & {
+        font-size: $font_size_14 !important;
+    }
+    [data-size="14"] & {
+        font-size: $font_size_16 !important;
+    }
+    [data-size="15"] & {
+        font-size: $font_size_17 !important;
+    }
+    [data-size="16"] & {
+        font-size: $font_size_18 !important;
+    }
+    [data-size="17"] & {
+        font-size: $font_size_19 !important;
+    }
+    [data-size="18"] & {
+        font-size: $font_size_20 !important;
+    }
+}
+
+//菜单等高级别层级标题单独处理 设置字号-1
+@mixin add-size-1() {
+    font-size: $size;
+    [data-size="12"] & {
+        font-size: $font_size_13 !important;
+    }
+    [data-size="14"] & {
+        font-size: $font_size_13 !important;
+    }
+    [data-size="15"] & {
+        font-size: $font_size_14 !important;
+    }
+    [data-size="16"] & {
+        font-size: $font_size_15 !important;
+    }
+    [data-size="17"] & {
+        font-size: $font_size_16 !important;
+    }
+    [data-size="18"] & {
+        font-size: $font_size_17 !important;
+    }
+}
+
+//菜单等高级别层级标题单独处理 设置字号-2
+@mixin add-size-2() {
+    [data-size="14"] & {
+        font-size: $font_size_12 !important;
+    }
+    [data-size="15"] & {
+        font-size: $font_size_13 !important;
+    }
+    [data-size="16"] & {
+        font-size: $font_size_14 !important;
+    }
+    [data-size="17"] & {
+        font-size: $font_size_15 !important;
+    }
+    [data-size="18"] & {
+        font-size: $font_size_16 !important;
+    }
+}
+
+
+/*弹框*/
+
+// 弹框动态字体
+@mixin add-fontsize() {
+    [data-size="14"] & {
+        font-size: 16px !important;
+    }
+    [data-size="16"] & {
+        font-size: 18px !important;
+    }
+    [data-size="18"] & {
+        font-size: 20px !important;
+    }
+}
+
+.el-dialog__title {
+    @include add-fontsize;
+}
+
+
+/*弹框*/
+
+
+/*菜单模块*/
+
+.zt-openmenu>ul>li dd,
+.font16 {
+    @include add-size2;
+}
+
+.zt-openmenu .lv2-name,
+.font14 {
+    @include add-size;
+}
+
+.zt-openmenu .lv3-box li,
+.font12 {
+    @include add-size-2;
+}
+
+
+/*tabs相关*/
+
+#menu-tabs>.el-tabs--border-card>.el-tabs__header .el-tabs__item {
+    @include add-size;
+}
+
+.el-tabs__item {
+    @include add-size;
+}
+
+
+/*时间轴*/
+
+.el-timeline {
+    @include add-size;
+}
+
+//左上角用户管理
+.user-box {
+    .user-name {
+        @include add-size;
+    }
+}
+
+.user-setting {
+    >ul>li {
+        @include add-size;
+        i {
+            @include add-size;
+        }
+    }
+}
+
+
+/*菜单模块 end*/
+
+.el-submenu__title,
+.el-menu-item {
+    @include add-size;
+}
+
+
+/*表格*/
+
+.el-table thead tr {
+    @include add-size2;
+}
+
+.el-table tr {
+    @include add-size;
+}
+
+
+/*表单*/
+
+.el-form-item__label {
+    @include add-size;
+}
+
+
+/*按钮*/
+
+.el-button {
+    @include add-size;
+}
+
+.el-button>span {
+    margin-left: 5px!important;
+}
+
+.el-select-dropdown__item,
+.vue-treeselect {
+    @include add-size;
+}
+
+.el-input,
+.el-textarea__inner {
+    @include add-size;
+}
+
+.el-radio span {
+    @include add-size;
+}
+
+
+/*树相关*/
+
+.el-tree span {
+    @include add-size;
+}
+
+.tree-span-font {
+    @include add-size;
+}
+
+
+/*进度条相关*/
+
+.el-step__title {
+    @include add-size1;
+}
+
+.el-step__description {
+    @include add-size;
+}
+
+
+/*标题相关*/
+
+// 一级标题
+.title-level1 {
+    @include add-size2;
+}
+
+// 二级标题
+.title-level2 {
+    @include add-size1;
+}
+
+// 文字相关
+.word-normal {
+    @include add-size;
+}

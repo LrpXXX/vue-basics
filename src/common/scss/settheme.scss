@@ -1,0 +1,244 @@
+﻿@charset "utf-8";
+$theme-color1:#349DFB;
+$theme-color2:#2f23d1;
+$theme-color3:#722ed1;
+$theme-color4:#f5222d;
+$theme-color5:#fa541c;
+$theme-color6:#faad14;
+$theme-color7:#0EBFA3;
+$theme-color8:#00ced1;
+$theme-bg1: url(../images/menu_theme1.png) no-repeat;
+// $theme-bg2: url(../images/menu_theme2.png) no-repeat;
+$theme-bg3: url(../images/menu_theme3.png) no-repeat;
+// $theme-bg4: url(../images/menu_theme4.png) no-repeat;
+// $theme-bg5: url(../images/menu_theme5.png) no-repeat;
+// $theme-bg6: url(../images/menu_theme6.png) no-repeat;
+$theme-bg7: url(../images/menu_theme7.png) no-repeat;
+// $theme-bg8: url(../images/menu_theme8.png) no-repeat;
+@mixin set-background {
+    [themecolor="theme1"] & {
+        background: $theme-color1 !important;
+    }
+    [themecolor="theme2"] & {
+        background: $theme-color2 !important;
+    }
+    [themecolor="theme3"] & {
+        background: $theme-color3 !important;
+    }
+    [themecolor="theme4"] & {
+        background: $theme-color4 !important;
+    }
+    [themecolor="theme5"] & {
+        background: $theme-color5 !important;
+    }
+    [themecolor="theme6"] & {
+        background: $theme-color6 !important;
+    }
+    [themecolor="theme7"] & {
+        background: $theme-color7 !important;
+    }
+    [themecolor="theme8"] & {
+        background: $theme-color8 !important;
+    }
+}
+
+@mixin set-bg {
+    [themecolor="theme1"] & {
+        background: $theme-bg1 !important;
+        background-size: cover;
+    }
+    [themecolor="theme2"] & {
+        background: linear-gradient(to bottom left, #13b3ff, #e30cff);     
+        //background: $theme-color2 !important;
+    }
+    [themecolor="theme3"] & {
+        background: $theme-bg3 !important;
+        background-size: cover;
+    }
+    [themecolor="theme4"] & {
+        background: linear-gradient(to bottom left, #ff821a, #ff0090);         
+    }
+    [themecolor="theme5"] & {
+        background: $theme-color5 !important;
+    }
+    [themecolor="theme6"] & {
+        background: $theme-color6 !important;
+    }
+    [themecolor="theme7"] & {
+        background: $theme-bg7 !important;
+        background-size: cover;
+    }
+    [themecolor="theme8"] & {
+        background: linear-gradient(to bottom left, #00aef6, #00eb74);         
+    }
+}
+
+@mixin set-fontcolor {
+    [themecolor="theme1"] & {
+        color: $theme-color1 !important;
+    }
+    [themecolor="theme2"] & {
+        color: $theme-color2 !important;
+    }
+    [themecolor="theme3"] & {
+        color: $theme-color3 !important;
+    }
+    [themecolor="theme4"] & {
+        color: $theme-color4 !important;
+    }
+    [themecolor="theme5"] & {
+        color: $theme-color5 !important;
+    }
+    [themecolor="theme6"] & {
+        color: $theme-color6 !important;
+    }
+    [themecolor="theme7"] & {
+        color: $theme-color7 !important;
+    }
+    [themecolor="theme8"] & {
+        color: $theme-color8 !important;
+    }
+}
+
+@mixin set-bordercolor {
+    [themecolor="theme1"] & {
+        border-color: $theme-color1 !important;
+    }
+    [themecolor="theme2"] & {
+        border-color: $theme-color2 !important;
+    }
+    [themecolor="theme3"] & {
+        border-color: $theme-color3 !important;
+    }
+    [themecolor="theme4"] & {
+        border-color: $theme-color4 !important;
+    }
+    [themecolor="theme5"] & {
+        border-color: $theme-color5 !important;
+    }
+    [themecolor="theme6"] & {
+        border-color: $theme-color6 !important;
+    }
+    [themecolor="theme7"] & {
+        border-color: $theme-color7 !important;
+    }
+    [themecolor="theme8"] & {
+        border-color: $theme-color8 !important;
+    }
+}
+
+.leftBox {
+    @include set-bg;
+    // background: url(../images/menu_theme1.png);
+}
+
+
+/*页头 左侧菜单*/
+
+// .el-menu,
+// .logo-box {
+//     // @include set-background;
+// }
+
+.el-menu-item:hover {
+    @include set-fontcolor;
+    i {
+        @include set-fontcolor;
+    }
+}
+
+.el-submenu__title:hover {
+    @include set-fontcolor;
+    i {
+        @include set-fontcolor;
+    }
+}
+
+.el-menu-item.is-active {
+    @include set-fontcolor;
+    i {
+        @include set-fontcolor;
+    }
+}
+
+
+/*弹框*/
+
+// 弹框动态背景色
+.el-dialog__header {
+    @include set-background;
+}
+
+// // 底部横条
+// .el-dialog__footer {
+//     border-top: 3px solid;
+//     @include set-bordercolor;
+// }
+
+
+/*弹框*/
+
+//搜索页面竖条
+.leftborder {
+    border-left: 5px solid;
+    @include set-bordercolor;
+    line-height: 40px;
+    background: #eee;
+    padding-left: 15px;
+}
+
+.btn-menushow {
+    @include set-background;
+}
+
+.user-setting {
+    ul>li:hover {
+        @include set-fontcolor;
+        i {
+            @include set-fontcolor;
+        }
+    }
+}
+
+.icons {
+    @include set-fontcolor;
+}
+
+.header-title {
+    @include set-fontcolor;
+}
+
+//换页
+.el-pagination.is-background .el-pager li:not(.disabled).active {
+    @include set-background;
+}
+
+//首页
+.home-bg {
+    .box-title {
+        @include set-fontcolor;
+        i {
+            @include set-fontcolor;
+        }
+    }
+    .point {
+        @include set-background;
+    }
+    .content-word-box:hover {
+        @include set-fontcolor;
+    }
+    .fast-box {
+        .img {
+            @include set-bordercolor;
+            i {
+                @include set-fontcolor;
+            }
+        }
+        .img:hover {
+            @include set-background;
+            i {
+                color: #fff !important;
+            }
+        }
+    }
+}

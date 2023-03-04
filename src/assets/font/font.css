@@ -1,0 +1,10 @@
+@charset "utf-8";
+@font-face {
+    font-family:'BigNum';
+    src:url('DIN-Bold.otf');
+  }
+
+  @font-face {
+    font-family:'LedFont';
+    src:url('LED.ttf');
+  }
