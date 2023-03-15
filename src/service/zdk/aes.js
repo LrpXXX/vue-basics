@@ -1,41 +1,40 @@
-import CryptoJS from 'crypto-js';
+import CryptoJS from 'crypto-js'
 
 // 默认的 KEY 与 iv 如果没有给
-const KEY = CryptoJS.enc.Utf8.parse("E56F91A94D19EAF6");
-const IV = CryptoJS.enc.Utf8.parse('E56F91A94D19EAF6');
+const KEY = CryptoJS.enc.Utf8.parse('E56F91A94D19EAF6')
+const IV = CryptoJS.enc.Utf8.parse('E56F91A94D19EAF6')
 /**
- * AES加密 ：字符串 key iv  返回base64 
+ * AES加密 ：字符串 key iv  返回base64
  */
-export function Encrypt(word, keyStr, ivStr) {
+export function Encrypt (word, keyStr, ivStr) {
   let key = KEY
   let iv = IV
 
   if (keyStr) {
-    key = CryptoJS.enc.Utf8.parse(keyStr);
-    iv = CryptoJS.enc.Utf8.parse(ivStr);
+    key = CryptoJS.enc.Utf8.parse(keyStr)
+    iv = CryptoJS.enc.Utf8.parse(ivStr)
   }
 
-  let srcs = CryptoJS.enc.Utf8.parse(word);
+  let srcs = CryptoJS.enc.Utf8.parse(word)
   var encrypted = CryptoJS.AES.encrypt(srcs, key, {
     iv: iv,
     mode: CryptoJS.mode.CBC,
     padding: CryptoJS.pad.Pkcs7
-  });
- // console.log("-=-=-=-", encrypted.ciphertext)
-  return CryptoJS.enc.Base64.stringify(encrypted.ciphertext);
-
+  })
+  // console.log("-=-=-=-", encrypted.ciphertext)
+  return CryptoJS.enc.Base64.stringify(encrypted.ciphertext)
 }
 /**
- * AES 解密 ：字符串 key iv  返回base64 
+ * AES 解密 ：字符串 key iv  返回base64
  *
  */
-export function Decrypt(word, keyStr, ivStr) {
-  let key  = KEY
+export function Decrypt (word, keyStr, ivStr) {
+  let key = KEY
   let iv = IV
 
   if (keyStr) {
-    key = CryptoJS.enc.Utf8.parse(keyStr);
-    iv = CryptoJS.enc.Utf8.parse(ivStr);
+    key = CryptoJS.enc.Utf8.parse(keyStr)
+    iv = CryptoJS.enc.Utf8.parse(ivStr)
   }
 
   // let base64 = CryptoJS.enc.Base64.parse(word);
@@ -45,8 +44,8 @@ export function Decrypt(word, keyStr, ivStr) {
     iv: iv,
     mode: CryptoJS.mode.CBC,
     padding: CryptoJS.pad.Pkcs7
-  });
+  })
 
-  var decryptedStr = decrypt.toString(CryptoJS.enc.Utf8);
-  return decryptedStr.toString();
+  var decryptedStr = decrypt.toString(CryptoJS.enc.Utf8)
+  return decryptedStr.toString()
 }

@@ -31,38 +31,35 @@
 
 <script>
 export default {
-   data() {
-      return {
-        noticeName:'first',
-        noticeTableData: [{
-            date: '2016-05-02',
-            address: '上海市普陀区金沙江路 1518 弄'
-          }, {
-            date: '2016-05-04',
-            address: '上海市普陀区金沙江路 1517 弄'
-          }, {
-            date: '2016-05-01',
-            address: '上海市普陀区金沙江路 1519 弄'
-          }, {
-            date: '2016-05-03',
-            address: '上海市普陀区金沙江路 1516 弄'
-          }],
-        
-      };
-    },
-    created(){
-
-
-    },
-    methods: {     
+  data () {
+    return {
+      noticeName: 'first',
+      noticeTableData: [{
+        date: '2016-05-02',
+        address: '上海市普陀区金沙江路 1518 弄'
+      }, {
+        date: '2016-05-04',
+        address: '上海市普陀区金沙江路 1517 弄'
+      }, {
+        date: '2016-05-01',
+        address: '上海市普陀区金沙江路 1519 弄'
+      }, {
+        date: '2016-05-03',
+        address: '上海市普陀区金沙江路 1516 弄'
+      }]
 
     }
+  },
+  created () {
+
+  },
+  methods: {
+
+  }
 }
 
 </script>
 
 <style  lang="scss" scoped>
-   
 
-   
 </style>

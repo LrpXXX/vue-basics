@@ -10,7 +10,7 @@ export default {
   ],
   jobTaskType: [
     { value: 0, name: '周期性及CRON' },
-    { value: 1, name: '一次性' },
+    { value: 1, name: '一次性' }
   ],
   runningStatus: [
     { value: -1, name: '未运行' },
@@ -20,7 +20,7 @@ export default {
     { value: 3, name: '运行中' },
     { value: 404, name: '异常' }
   ],
-  //脱敏
+  // 脱敏
   desensitization: [
     { value: 'NAME', name: '姓名' },
     { value: 'IDENTITY_ID', name: '身份证号' },
@@ -29,23 +29,23 @@ export default {
     { value: 'ADDRESS', name: '地址' },
     { value: 'QUANTITY', name: '数量' }
   ],
-  //搜索关系
+  // 搜索关系
   searchType: [
     { value: 'eq', name: '等于' },
     { value: 'like', name: '匹配' },
     { value: 'gt', name: '大于' },
-    { value: 'lt', name: '小于' },
+    { value: 'lt', name: '小于' }
   ],
-  //操作类型
+  // 操作类型
   optionType: ['查询', '修改', '删除', '新增', '导入', '导出', '登录', '退出', '授权', '启动', '停止', '执行'],
-  //菜单类型数组
+  // 菜单类型数组
   menuType: [
     { value: '1', name: '流程' },
     { value: '2', name: '模块' },
     { value: '3', name: '后台' },
     { value: '4', name: '功能' }
   ],
-  //请求方式
+  // 请求方式
   requestType: [
     { value: 'GET', name: 'GET' },
     { value: 'POST', name: 'POST' },
@@ -54,6 +54,6 @@ export default {
     { value: 'PATCH', name: 'PATCH' },
     { value: 'HEAD', name: 'HEAD' },
     { value: 'OPTIONS', name: 'OPTIONS' },
-    { value: 'TRACE', name: 'TRACE' },
-  ],
+    { value: 'TRACE', name: 'TRACE' }
+  ]
 }

@@ -1,8 +1,8 @@
 import JSEncrypt from 'jsencrypt'
 import Encrypt from 'encryptlong'
-import jsrsasign from "jsrsasign";
+import jsrsasign from 'jsrsasign'
 
-let Base64 = require('js-base64').Base64;
+let Base64 = require('js-base64').Base64
 
 /**
  * 服务端公共密钥
@@ -26,11 +26,11 @@ export default {
    * @param data  数据
    * @returns {*}
    */
-  rsaPublicData(data) {
-    const jsEncrypt = new JSEncrypt();
+  rsaPublicData (data) {
+    const jsEncrypt = new JSEncrypt()
     jsEncrypt.setPublicKey(publicKey)
     // 如果是对象/数组的话，需要先JSON.stringify转换成字符串
-    const result = jsEncrypt.encrypt(data);
+    const result = jsEncrypt.encrypt(data)
     return Base64.encode(result)
   },
 
@@ -39,32 +39,32 @@ export default {
    * @param data  加密数据体
    * @returns {string | false}
    */
-  rsaPrivateData(data) {
-    const jsEncrypt = new JSEncrypt();
+  rsaPrivateData (data) {
+    const jsEncrypt = new JSEncrypt()
     // 根据【前端】publicKey的密钥，通过【前端】privateKey解密
     jsEncrypt.setPrivateKey(privateKey)
     // 如果是对象/数组的话，需要先JSON.stringify转换成字符串
-    let decodeData = Base64.decode(data);
-    const result = jsEncrypt.decrypt(decodeData);
+    let decodeData = Base64.decode(data)
+    const result = jsEncrypt.decrypt(decodeData)
     return result
   },
 
   /* 加密 */
-  encrypt(data) {
+  encrypt (data) {
     const PUBLIC_KEY = publicKey
-    const encryptor = new Encrypt();
+    const encryptor = new Encrypt()
     encryptor.setPublicKey(PUBLIC_KEY)
     // 如果是对象/数组的话，需要先JSON.stringify转换成字符串
     const result = encryptor.encryptLong(data)
     return result
   },
   /* 解密 - PRIVATE_KEY - 验证 */
-  decrypt(data) {
+  decrypt (data) {
     const PRIVATE_KEY = privateKey
-    const encryptor = new Encrypt();
+    const encryptor = new Encrypt()
     encryptor.setPrivateKey(PRIVATE_KEY)
     // 如果是对象/数组的话，需要先JSON.stringify转换成字符串
-    const result = encryptor.decryptLong(data);
+    const result = encryptor.decryptLong(data)
     return result
   },
 
@@ -73,22 +73,21 @@ export default {
    * @param signData  数据
    * @returns {string}
    */
-  addSignature(signData) {
-    const pk = '-----BEGIN PRIVATE KEY-----' + privateKey + '-----END PRIVATE KEY-----';
+  addSignature (signData) {
+    const pk = '-----BEGIN PRIVATE KEY-----' + privateKey + '-----END PRIVATE KEY-----'
     // //初始化RSAKey
-    let rsa = new jsrsasign.RSAKey();
+    let rsa = new jsrsasign.RSAKey()
     // 读取解析pem格式的秘钥, 生成秘钥实例 (RSAKey)
-    rsa = jsrsasign.KEYUTIL.getKey(pk);
+    rsa = jsrsasign.KEYUTIL.getKey(pk)
     // var sig = new jsrsasign.Signature({"alg":"SHA256WithRSA", "prvkeypem": pk})
-    const sig = new jsrsasign.Signature({"alg": "SHA256withRSA"});
+    const sig = new jsrsasign.Signature({ 'alg': 'SHA256withRSA' })
     // 初始化
     sig.init(rsa)
     // 传入待加密字符串
     sig.updateString(signData)
     // 生成密文
-    let sign = jsrsasign.hextob64(sig.sign());
-    return sign;
+    let sign = jsrsasign.hextob64(sig.sign())
+    return sign
   }
-
 
 }

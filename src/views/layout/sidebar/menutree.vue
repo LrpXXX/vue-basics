@@ -21,14 +21,14 @@
 </template>
 <script>
 export default {
-  props: ["data", "collapse"],//父组件传的参数 unique-opened 
-  name: "menutree",//声明组件名称
-  data() {
+  props: ['data', 'collapse'], // 父组件传的参数 unique-opened
+  name: 'menutree', // 声明组件名称
+  data () {
     return {
 
-    };
+    }
   },
-  created() {
+  created () {
   },
   methods: {
     /*
@@ -36,19 +36,19 @@ export default {
       open ：跳转方式:1项目内跳转。2打开新窗口
       url：跳转路径
     */
-    routerJump(menu) {
+    routerJump (menu) {
       if (menu.openMode == 1) {
         this.$router.push({
           path: menu.pathUrl,
           query: {
-            t: new Date().getTime(),
-          },
+            t: new Date().getTime()
+          }
         })
       } else if (menu.openMode == 2) {
-        window.open(menu.pathUrl+"?t="+new Date().getTime(), '_blank') // 新窗口打开外链接
+        window.open(menu.pathUrl + '?t=' + new Date().getTime(), '_blank') // 新窗口打开外链接
       }
     }
-  },
+  }
 }
 </script>
 

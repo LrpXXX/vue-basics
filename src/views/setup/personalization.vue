@@ -62,26 +62,26 @@
 
 <script>
 export default {
-   data() {
-      return {
-        value: true
-      }
-    },
-  methods: {
-      open() {
-        this.$alert('这是一段内容', '标题名称', {
-          confirmButtonText: '确定',
-          callback: action => {
-            this.$message({
-              type: 'info',
-              message: `action: ${ action }`
-            });
-          }
-        });
-      }
+  data () {
+    return {
+      value: true
     }
+  },
+  methods: {
+    open () {
+      this.$alert('这是一段内容', '标题名称', {
+        confirmButtonText: '确定',
+        callback: action => {
+          this.$message({
+            type: 'info',
+            message: `action: ${action}`
+          })
+        }
+      })
+    }
+  }
 
-};
+}
 </script>
 <style scoped lang="scss">
 .grid-content h3{    margin-bottom: 4px;

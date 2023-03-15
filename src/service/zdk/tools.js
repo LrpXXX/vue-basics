@@ -1,6 +1,6 @@
-//通用本地存储公共类 基于ES6
-//全局引用的常用公共函数
-import global from '@/service/zdk/global_variable' //全局变量
+// 通用本地存储公共类 基于ES6
+// 全局引用的常用公共函数
+import global from '@/service/zdk/global_variable' // 全局变量
 export default {
   /*
    *  json转换成
@@ -8,10 +8,10 @@ export default {
    */
   jsonShow: function (data) {
     if (data != undefined) {
-      if (typeof (data) == "object") {
-        return JSON.stringify(data, null, '\t');
+      if (typeof (data) === 'object') {
+        return JSON.stringify(data, null, '\t')
       } else {
-        console.log("jsonShow()传如参数类型错误，请传入object对象；当前传入参数类型为" + typeof (data));
+        console.log('jsonShow()传如参数类型错误，请传入object对象；当前传入参数类型为' + typeof (data))
       }
     }
   },
@@ -19,21 +19,21 @@ export default {
   winOpen: function (url) {
     window.open(url, '_blank')
   },
-  /*------------------ sessionStorage------------------- */
+  /* ------------------ sessionStorage------------------- */
   /*
    * 存储 sessionStorage 单个对象   例子：sessionStorage.setItem("fakeRouter",strfakeRouter) ;
    * @param name 设置的对象名称
    * @param data 设置的对象值
    */
   setSession: function (name, data) {
-    sessionStorage.setItem(name, data);
+    sessionStorage.setItem(name, data)
   },
   /*
    * 获取 sessionStorage 单个对象
    * @param name 获取的对象名称
    */
   getSession: function (name) {
-    return sessionStorage.getItem(name);
+    return sessionStorage.getItem(name)
   },
   /*
    * 存储 sessionStorage 数组对象
@@ -41,7 +41,7 @@ export default {
    * @param data 设置的对象值
    */
   setObjSession: function (name, data) {
-    sessionStorage.setItem(name, JSON.stringify(data));
+    sessionStorage.setItem(name, JSON.stringify(data))
   },
   /*
   * 获取sessionStorage 数组对象
@@ -49,7 +49,7 @@ export default {
   如：sessionStorage.setItem("fakeRouter",strfakeRouter) ;
   */
   getObjSession: function (name) {
-    return JSON.parse(sessionStorage.getItem(name));
+    return JSON.parse(sessionStorage.getItem(name))
   },
 
   /*
@@ -57,31 +57,31 @@ export default {
    * @param name 获取的对象名称
    */
   delSession: function (name) {
-    return sessionStorage.removeItem(name);
+    return sessionStorage.removeItem(name)
   },
 
   /*
    * 删除 sessionStorage 所有对象
    */
   delAllSession: function () {
-    return sessionStorage.clear();
+    return sessionStorage.clear()
   },
 
-  /*------------------localStorage------------------- */
+  /* ------------------localStorage------------------- */
   /*
    * 存储 localStorage 单个对象   例子：localStorage.setItem("fakeRouter",strfakeRouter) ;
    * @param name 设置的对象名称
    * @param data 设置的对象值
    */
   setLocal: function (name, data) {
-    localStorage.setItem(name, data);
+    localStorage.setItem(name, data)
   },
   /*
    * 获取 localStorage 单个对象
    * @param name 获取的对象名称
    */
   getLocal: function (name) {
-    return localStorage.getItem(name);
+    return localStorage.getItem(name)
   },
   /*
    * 存储 localStorage 数组对象
@@ -89,7 +89,7 @@ export default {
    * @param data 设置的对象值
    */
   setObjLocal: function (name, data) {
-    localStorage.setItem(name, JSON.stringify(data));
+    localStorage.setItem(name, JSON.stringify(data))
   },
   /*
   * 获取localStorage 数组对象
@@ -98,13 +98,11 @@ export default {
   */
   getObjLocal: function (name) {
     try {
-      return JSON.parse(localStorage.getItem(name));
+      return JSON.parse(localStorage.getItem(name))
     } catch (error) {
       console.error(error)
-      return "undefined";
-
+      return 'undefined'
     }
-
   },
 
   /*
@@ -112,65 +110,61 @@ export default {
    * @param name 获取的对象名称
    */
   delLocal: function (name) {
-    return localStorage.removeItem(name);
+    return localStorage.removeItem(name)
   },
 
   /*
    * 删除 localStorage 所有对象 --没有~~
    */
-  /**------------------Cookie---------------------*/
+  /** ------------------Cookie--------------------- */
   /**
    * 设置
    * @param name cookie名称
    * @param {value}存储值
    *  @param {time}  过期时间(单位:分钟) 默认30分钟
    */
-  setCookie(name, value, time) {
-    var exp = new Date();
+  setCookie (name, value, time) {
+    var exp = new Date()
     if (time === undefined) {
-      exp.setTime(exp.getTime() + 30 * 60 * 1000);
+      exp.setTime(exp.getTime() + 30 * 60 * 1000)
     } else {
-      exp.setTime(exp.getTime() + time * 60 * 1000);
+      exp.setTime(exp.getTime() + time * 60 * 1000)
     }
 
-    document.cookie = name + "=" + escape(value) + ";expires=" + exp.toGMTString() + ";path=/";
+    document.cookie = name + '=' + escape(value) + ';expires=' + exp.toGMTString() + ';path=/'
   },
   /**
    * 获取cookice
    */
-  getCookie(name) {
-    var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
-    if (arr = document.cookie.match(reg))
-      return unescape(arr[2]);
-    else
-      return null;
+  getCookie (name) {
+    var arr; var reg = new RegExp('(^| )' + name + '=([^;]*)(;|$)')
+    if (arr = document.cookie.match(reg)) { return unescape(arr[2]) } else { return null }
   },
   /**
    * 删除cookice
    */
-  delCookie(name) {
-    var exp = new Date();
-    exp.setTime(exp.getTime() - 60 * 60 * 1000);
-    var cval = getCookie(name);
-    if (cval != null)
-      document.cookie = name + "=" + cval + ";expires=" + exp.toGMTString() + ";path=/";
+  delCookie (name) {
+    var exp = new Date()
+    exp.setTime(exp.getTime() - 60 * 60 * 1000)
+    var cval = getCookie(name)
+    if (cval != null) { document.cookie = name + '=' + cval + ';expires=' + exp.toGMTString() + ';path=/' }
   },
-  /**---------------------------------------*/
+  /** --------------------------------------- */
   /**
    * 获取日期格式字符串
    * @param dateTimeStr 日期时间字符串
    * @return {string}日期格式字符串
    */
-  getDateStr(dateTimeStr) {
-    if (!dateTimeStr) return "";
-    return dateTimeStr.length > 10 ? dateTimeStr.substring(0, 10) : dateTimeStr;
+  getDateStr (dateTimeStr) {
+    if (!dateTimeStr) return ''
+    return dateTimeStr.length > 10 ? dateTimeStr.substring(0, 10) : dateTimeStr
   },
   /**
    * 下载文件
    */
-  downFile(fileContent, fileName) {
+  downFile (fileContent, fileName) {
     let blob = new Blob([fileContent], {
-      type: fileContent.type,
+      type: fileContent.type
     })
     if (window.navigator.msSaveOrOpenBlob) {
       navigator.msSaveBlob(blob, fileName)
@@ -179,7 +173,7 @@ export default {
       link.href = window.URL.createObjectURL(blob)
       link.download = fileName
       link.click()
-      //释放内存
+      // 释放内存
       window.URL.revokeObjectURL(link.href)
     }
   },
@@ -188,12 +182,12 @@ export default {
    * @param fileId 附件id
    * @param fileName 附件名称
    */
-  downFileById(fileId, fileName) {
-    request.uploadFile("storage/download/" + fileId, {}, res => {
-      this.downFile(res, fileName);
+  downFileById (fileId, fileName) {
+    request.uploadFile('storage/download/' + fileId, {}, res => {
+      this.downFile(res, fileName)
     }, {
       responseType: 'blob'
-    });
+    })
   },
   /**
    * 触发 window.resize
@@ -204,27 +198,27 @@ export default {
     event.eventType = 'message'
     window.dispatchEvent(event)
   },
-  //时间戳转换方法    date:时间戳数字
+  // 时间戳转换方法    date:时间戳数字
   // formatDate("YYYY-mm-dd HH:MM", date) ==> 2019-06-06 19:45`
   formatDate: function (date, fmt) {
     date = new Date(date)
-    let ret;
+    let ret
     const opt = {
-      "Y+": date.getFullYear().toString(), // 年
-      "m+": (date.getMonth() + 1).toString(), // 月
-      "d+": date.getDate().toString(), // 日
-      "H+": date.getHours().toString(), // 时
-      "M+": date.getMinutes().toString(), // 分
-      "S+": date.getSeconds().toString() // 秒
+      'Y+': date.getFullYear().toString(), // 年
+      'm+': (date.getMonth() + 1).toString(), // 月
+      'd+': date.getDate().toString(), // 日
+      'H+': date.getHours().toString(), // 时
+      'M+': date.getMinutes().toString(), // 分
+      'S+': date.getSeconds().toString() // 秒
       // 有其他格式化字符需求可以继续添加，必须转化成字符串
-    };
+    }
     for (let k in opt) {
-      ret = new RegExp("(" + k + ")").exec(fmt);
+      ret = new RegExp('(' + k + ')').exec(fmt)
       if (ret) {
-        fmt = fmt.replace(ret[1], (ret[1].length == 1) ? (opt[k]) : (opt[k].padStart(ret[1].length, "0")))
+        fmt = fmt.replace(ret[1], (ret[1].length == 1) ? (opt[k]) : (opt[k].padStart(ret[1].length, '0')))
       };
     };
-    return fmt;
+    return fmt
   },
   /***
    * 查询条件组合
@@ -236,117 +230,116 @@ export default {
     for (let item of changeObj) {
       let key = item.name
       if (object[key] != undefined) {
-        if (object[key] == "") {
+        if (object[key] == '') {
           delete object[key]
         } else {
-          let keyName = key + "_" + this.getSearchCode(item.judge)
+          let keyName = key + '_' + this.getSearchCode(item.judge)
           object[keyName] = object[key]
           delete object[key]
         }
-
       }
     }
-    //console.log(object)
+    // console.log(object)
     return object
   },
-  //查询条件组装
+  // 查询条件组装
   getSearchCode: function (code) {
-    code = code.trim();
+    code = code.trim()
     switch (code) {
-      case "=": //等于
-        return "equal";
-        break;
-      case "<>": //不等于
-        return "notequal";
-        break;
-      case "like": //约等于 默认
-        return "like";
-        break;
-      case "notlike": // 不约等于
-        return "notlike";
-        break;
-      case ">": // 大于
-        return "gt";
-        break;
-      case "<": // 小于
-        return "lt";
-        break;
-      case "date>": // 时间大于
-        return "dategt";
-        break;
-      case "date<": // 时间小于
-        return "datelt";
-        break;
-      case "date=": // 时间等于
-        return "dateequal";
-        break;
-      case "null": // 等于空
-        return "null";
-        break;
-      case "notnull": // 不等于空
-        return "notnull";
-        break;
-      case "ignore": // 默认
-        return "ignore";
-        break;
+      case '=': // 等于
+        return 'equal'
+        break
+      case '<>': // 不等于
+        return 'notequal'
+        break
+      case 'like': // 约等于 默认
+        return 'like'
+        break
+      case 'notlike': // 不约等于
+        return 'notlike'
+        break
+      case '>': // 大于
+        return 'gt'
+        break
+      case '<': // 小于
+        return 'lt'
+        break
+      case 'date>': // 时间大于
+        return 'dategt'
+        break
+      case 'date<': // 时间小于
+        return 'datelt'
+        break
+      case 'date=': // 时间等于
+        return 'dateequal'
+        break
+      case 'null': // 等于空
+        return 'null'
+        break
+      case 'notnull': // 不等于空
+        return 'notnull'
+        break
+      case 'ignore': // 默认
+        return 'ignore'
+        break
     }
   },
-  //组装表单
+  // 组装表单
   buildFormComponent: function (code) {
-    code = code.trim();
+    code = code.trim()
     switch (code) {
-      case "10001": //单行文本框
-        return "<el-input></el-input>";
-        break;
-      case "10002": //多行文本框
-        return "notequal";
-        break;
-      case "10003": //下拉框 默认
-        return "like";
-        break;
-      case "10004": // 单选框
-        return "notlike";
-        break;
-      case "10005": // 复选框
-        return "gt";
-        break;
-      case "10006": // 静态文本
-        return "lt";
-        break;
-      case "date>": // 时间大于
-        return "dategt";
-        break;
-      case "date<": // 时间小于
-        return "datelt";
-        break;
-      case "date=": // 时间等于
-        return "dateequal";
-        break;
-      case "null": // 等于空
-        return "null";
-        break;
-      case "notnull": // 不等于空
-        return "notnull";
-        break;
-      case "ignore": // 默认
-        return "ignore";
-        break;
+      case '10001': // 单行文本框
+        return '<el-input></el-input>'
+        break
+      case '10002': // 多行文本框
+        return 'notequal'
+        break
+      case '10003': // 下拉框 默认
+        return 'like'
+        break
+      case '10004': // 单选框
+        return 'notlike'
+        break
+      case '10005': // 复选框
+        return 'gt'
+        break
+      case '10006': // 静态文本
+        return 'lt'
+        break
+      case 'date>': // 时间大于
+        return 'dategt'
+        break
+      case 'date<': // 时间小于
+        return 'datelt'
+        break
+      case 'date=': // 时间等于
+        return 'dateequal'
+        break
+      case 'null': // 等于空
+        return 'null'
+        break
+      case 'notnull': // 不等于空
+        return 'notnull'
+        break
+      case 'ignore': // 默认
+        return 'ignore'
+        break
     }
   },
 
   _debounce: function (fn, delay = 300) {
-    var timer = null;
+    var timer = null
     return function () {
-      var _this = this;
-      var args = arguments;
-      if (timer) clearTimeout(timer);
+      var _this = this
+      var args = arguments
+      if (timer) clearTimeout(timer)
       timer = setTimeout(function () {
-        fn.apply(_this, args);
-      }, delay);
-    };
+        fn.apply(_this, args)
+      }, delay)
+    }
   },
   setTheme: function (theme) {
-    let themeColor = global.COLORS;
+    let themeColor = global.COLORS
     for (let item of themeColor) {
       if (item.name == theme) {
         window.document.documentElement.setAttribute('themecolor', item.name)
@@ -354,19 +347,19 @@ export default {
       }
     }
   },
-  //每3位数字加逗号 如 10,005,133
-  toNum(num) {
-    let result = '',
-      counter = 0;
-    num = (num || 0).toString();
+  // 每3位数字加逗号 如 10,005,133
+  toNum (num) {
+    let result = ''
+    let counter = 0
+    num = (num || 0).toString()
     for (var i = num.length - 1; i >= 0; i--) {
-      counter++;
-      result = num.charAt(i) + result;
+      counter++
+      result = num.charAt(i) + result
       if (!(counter % 3) && i != 0) {
-        result = ',' + result;
+        result = ',' + result
       }
     }
-    return result;
+    return result
   },
   /**
    * @desc 函数防抖---“立即执行版本” 和 “非立即执行版本” 的组合版本
@@ -379,25 +372,25 @@ export default {
    * window.addEventListener("mousemove",debounce(handle,1000,true)); // 调用立即执行版本
    * window.addEventListener("mousemove",debounce(handle,1000,false)); // 调用非立即执行版本
    **/
-  debounce(func, wait, immediate) {
-    let timer;// 定时器，用来 setTimeout
+  debounce (func, wait, immediate) {
+    let timer// 定时器，用来 setTimeout
     // 返回一个函数，这个函数会在一个时间区间结束后的 delay 毫秒时执行 fn 函数
     return function () {
       // 保存函数调用时的上下文和参数，传递给 fn
-      let context = this;
-      let args = arguments;
+      let context = this
+      let args = arguments
 
-      if (timer) clearTimeout(timer);// 每次这个返回的函数被调用，就清除定时器，以保证不执行 fn
+      if (timer) clearTimeout(timer)// 每次这个返回的函数被调用，就清除定时器，以保证不执行 fn
       if (immediate) {
-        let callNow = !timer;
+        let callNow = !timer
         timer = setTimeout(() => {
-          timer = null;
+          timer = null
         }, wait)
         if (callNow) func.apply(context, args)
       } else {
         timer = setTimeout(function () {
           func.apply(context, args)
-        }, wait);
+        }, wait)
       }
     }
   },
@@ -407,7 +400,7 @@ export default {
   * @param delay {Number}  执行间隔，单位是毫秒（ms）  *
   * @return {Function}     返回一个“节流”函数
   */
-  throttle(fn, threshhold) {
+  throttle (fn, threshhold) {
     // 记录上次执行的时间
     let last
     // 定时器
@@ -437,6 +430,6 @@ export default {
         fn.apply(context, args)
       }
     }
-  },
+  }
 
 }

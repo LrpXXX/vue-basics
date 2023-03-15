@@ -2,7 +2,7 @@ module.exports = {
   presets: [
     '@vue/cli-plugin-babel/preset'
   ],
-  plugins: [        // element官方教程
+  plugins: [ // element官方教程
     [
       'component',
       {
@@ -11,9 +11,9 @@ module.exports = {
       }
     ]
   ],
-  "env": {
-    "development":{
-      "plugins": ["dynamic-import-node"]
+  'env': {
+    'development': {
+      'plugins': ['dynamic-import-node']
     }
   }
 }

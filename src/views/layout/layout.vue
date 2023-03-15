@@ -1,37 +1,12 @@
 <template>
   <section class="layout-bg">
-    <div class="main">
-      <div class="top-height">
-        <el-header>
-          <el-row>
-            <el-col :span="6" class="title-box">
-<!--              <img src="@/common/images/layout/logo.svg" alt="">-->
-              <span>{{this.$g.SYSTEM_CONFIG.sysName}}</span>
-            </el-col>
-            <el-col :span="12">
-              <el-menu :default-active="toIndex" class="el-menu-demo" mode="horizontal">
-                <el-menu-item  v-for="(item, index) in firstMenu" :key="index" :index="item.id" @click="routerJump(item)">
-                  <img class="icon" v-if="item.icon!=''" :src="require('@/common/images/layout/'+item.icon+'_icon.svg')" alt="">
-                  {{item.name}}
-                </el-menu-item>
-                <!-- <el-menu-item index="2">处理中心</el-menu-item>
-                <el-menu-item index="3">处理中心</el-menu-item> -->
-              </el-menu>
-            </el-col>
-            <el-col :span="6">
-              <header-item></header-item>
-            </el-col>
-          </el-row>
-       </el-header>
-
-      </div>
       <div class="bot-box">
         <div class="left-nav">
           <sidebar-item :menuData="submenuData" ref="submenu"></sidebar-item>
         </div>
         <el-main class="scoll-main" v-show="submenuData.length>0">
           <transition name="fade-transform">
-            <router-view :key="$route.fullPath" ></router-view>
+            <router-view :key="$route.fullPath" >没有东西呀</router-view>
           </transition>
         </el-main>
         <!-- 没有子菜单时 -->
@@ -45,37 +20,85 @@
 </template>
 
 <script>
-import SidebarItem from "@/views/layout/sidebar/sidebar";
-import HeaderItem from "@/views/layout/header/header";
-import { outLinkJump } from '@/service/api/sysinfo';
+import SidebarItem from '@/views/layout/sidebar/sidebar'
+import HeaderItem from '@/views/layout/header/header'
+import { outLinkJump } from '@/service/api/sysinfo'
 
-const version = require("element-ui/package.json").version; // element-ui version from node_modules
-const ORIGINAL_THEME = "#409EFF"; // default color
-
+const version = require('element-ui/package.json').version // element-ui version from node_modules
+const ORIGINAL_THEME = '#409EFF' // default color
+const submenu = [{
+  'id': '3',
+  'name': '数据汇聚 ',
+  'sorting': '1',
+  'pid': '0',
+  'type': '1',
+  'pathUrl': '/dataCollect/index',
+  'serialNumber': '1',
+  'icon': 'sjhj',
+  'openMode': '1',
+  'keepalive': true
+},
+{
+  'id': '4',
+  'name': '预约管理 ',
+  'sorting': '1',
+  'pid': '0',
+  'type': '1',
+  'pathUrl': '/appotionment/appotionment',
+  'serialNumber': '1',
+  'icon': 'sjhj',
+  'openMode': '1',
+  'keepalive': true
+},
+{
+  'id': '5',
+  'name': '人员管理 ',
+  'sorting': '1',
+  'pid': '0',
+  'type': '1',
+  'pathUrl': '/personnel/personnel',
+  'serialNumber': '1',
+  'icon': 'sjhj',
+  'openMode': '1',
+  'keepalive': true
+},
+{
+  'id': '6',
+  'name': '人员管理 ',
+  'sorting': '1',
+  'pid': '0',
+  'type': '1',
+  'pathUrl': '/personnel/personnel',
+  'serialNumber': '1',
+  'icon': 'sjhj',
+  'openMode': '1',
+  'keepalive': true
+}]
 export default {
+
   components: { SidebarItem, HeaderItem },
-  data() {
+  data () {
     return {
       fn: null,
-      theme: "409EFF",
-      userSetting:{},//用户设置
-      setChange:false,//用户设置是否改变
-      firstMenu:[],
-      submenuData:[],//侧边栏导航数据
-      activeIndex:'',//头部导航栏默认选中(已弃用)
-    };
+      theme: '409EFF',
+      userSetting: {}, // 用户设置
+      setChange: false, // 用户设置是否改变
+      firstMenu: [],
+      submenuData: submenu, // 侧边栏导航数据
+      activeIndex: '' // 头部导航栏默认选中(已弃用)
+    }
   },
   computed: {
-    toIndex(){  // 根据路径绑定到对应的一级菜单，防止页面刷新重新跳回第一个
-      return  this.$route.meta.topId;
-    },
+    toIndex () { // 根据路径绑定到对应的一级菜单，防止页面刷新重新跳回第一个
+      return this.$route.meta.topId
+    }
   },
-  created(){
-    this.firstMenu = this.$t.getObjSession("menuData");
+  created () {
+    this.firstMenu = this.$t.getObjSession('menuData')
   },
-  mounted() {
-    this.$nextTick(()=>{
-      this.routerJump(null);
+  mounted () {
+    this.$nextTick(() => {
+      this.routerJump(null)
     })
   },
   methods: {
@@ -84,39 +107,38 @@ export default {
       openMode ：跳转方式:1项目内跳转。2打开新窗口跳转路由 3打开新窗口跳转其他系统
       url：跳转路径
     */
-    routerJump(menus) {
-      let menu = menus;
-      let topId = this.$route.meta.topId;
-      //是否加载第一次加载菜单。判断是否刷新页面
-      let bool= true;
-      if(!menu){
-        if(topId){
-          this.firstMenu.forEach(item=>{
-            if(item.id == topId){
-              menu = item;
-              bool = false;
+    routerJump (menus) {
+      let menu = menus
+      let topId = this.$route.meta.topId
+      // 是否加载第一次加载菜单。判断是否刷新页面
+      let bool = true
+      if (!menu) {
+        if (topId) {
+          this.firstMenu.forEach(item => {
+            if (item.id == topId) {
+              menu = item
+              bool = false
             }
           })
-        }else{
-          menu = this.firstMenu[0];
+        } else {
+          menu = this.firstMenu[0]
         }
       }
-      if (menu.openMode == '1') {//菜单路由跳转
-        this.submenuData = menu.children?menu.children:[];
-        if(menu.children){
-          if(bool){
-            this.findLeafMenu(menu.children);
+      if (menu.openMode == '1') { // 菜单路由跳转
+        this.submenuData = menu.children ? menu.children : []
+        if (menu.children) {
+          if (bool) {
+            this.findLeafMenu(menu.children)
           }
-        }else{
-          this.$message({ showClose: true,message: "暂无权限！",type: 'warning'});
+        } else {
+          this.$message({ showClose: true, message: '暂无权限！', type: 'warning' })
         }
       }
-      if (menu.openMode == '2' && menu.type=='2') { // 新窗口打开路由
-        window.open(menu.pathUrl+"?t="+new Date().getTime(), '_blank')
-
+      if (menu.openMode == '2' && menu.type == '2') { // 新窗口打开路由
+        window.open(menu.pathUrl + '?t=' + new Date().getTime(), '_blank')
       }
-      if (menu.openMode == '2' && menu.type=='3'){//新窗口跳转其他系统
-        outLinkJump(menu.pathUrl,{},res=>{
+      if (menu.openMode == '2' && menu.type == '3') { // 新窗口跳转其他系统
+        outLinkJump(menu.pathUrl, {}, res => {
           window.open(res.data.SsoLoginUrl, '_blank')
         })
       }
@@ -135,7 +157,7 @@ export default {
     //      ELEMENT.Pagination.props.pageSize.default=this.userSetting.pageSize;
     //   }
     // },
-    //初始菜单、刷新页面菜单选中问题
+    // 初始菜单、刷新页面菜单选中问题
     // refreshMenu(){
     //   this.firstMenu = this.$t.getObjSession("menuData");
     //   let Arr = this.$t.getObjSession("menuData")
@@ -151,35 +173,34 @@ export default {
     //     }
     //   }
     // },
-    //获取菜单叶子节点
-    findLeafMenu(arr) {
+    // 获取菜单叶子节点
+    findLeafMenu (arr) {
       if (arr[0].children) {
-        this.findLeafMenu(arr[0].children);
-      }else{
-        this.$router.push(arr[0].pathUrl);
+        this.findLeafMenu(arr[0].children)
+      } else {
+        this.$router.push(arr[0].pathUrl)
       }
-    },
-  },
+    }
+  }
 
-};
+}
 </script>
 <!--这里做全局样式 不要scoped-->
 <style scoped lang="scss">
-
 
 .layout-bg {
   background: #fff !important;
 }
 .top-height{
   //#2c92fb rgb(12 121 217 / 98%)
-  height: 85px;background-color: #2c92fb;line-height:85px;padding:0 20px;
+  height: 85px;background-color: #000;line-height:85px;padding:0 20px;
   .el-row{height: 85px;}
   ::v-deep {
     .el-header{padding: 0;height: 100% !important;}
     .el-menu{background-color: transparent;border-bottom: 0 !important;}
     .el-menu--horizontal>.el-menu-item{height: 85px;line-height: 85px;font-size: 20px;color: #fff;border-bottom: none;}
     .el-menu--horizontal>.el-menu-item.is-active{border-bottom: none;background-color: transparent;font-weight: bold;
-      &::after{width: 4px;display: inline-block;content: '';height: 38px;background-color: #02a7f0;position: relative;top: 12px;margin-left: 20px;}
+      &::after{width: 4px;display: inline-block;content: '';height: 38px;background-color: #000;position: relative;top: 12px;margin-left: 20px;}
     }
     .el-menu--horizontal>.el-menu-item:not(.is-disabled):hover{background-color: transparent;font-weight: bold;}
   }
